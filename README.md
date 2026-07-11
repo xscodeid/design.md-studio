@@ -70,6 +70,57 @@ vercel
 
 No environment variables or secrets are required.
 
+## Contributing
+
+Contributions are welcome. The project is small and intentionally kept focused. Before investing time in a larger change, please open an issue to discuss.
+
+### Project conventions
+
+- **TypeScript only** — no plain JS. Use strict types; `any` is not allowed.
+- **Framework-agnostic engine** — `lib/engine/` must not import from React, Next.js, or any DOM/browser API. Keep it pure TypeScript so it remains fully unit-testable.
+- **Server Components by default** — only add `"use client"` when interactivity (state, effects, event handlers) is required.
+- **Input validation** — use Zod for any user-facing form or API input.
+- **Secrets** — all API keys and sensitive values go in `.env` (`.env*.local` is gitignored). Never hardcode secrets.
+- **CSS** — use Tailwind CSS v4 utility classes. Avoid custom CSS files unless absolutely necessary.
+- **Naming** — `camelCase` for variables/functions, `PascalCase` for components/types, `UPPER_SNAKE_CASE` for constants. All code artifacts must be in English.
+- **Commit messages** — concise, focused on the "why". One commit per logical change.
+
+### Development workflow
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Run tests before pushing
+npm test
+
+# Lint and type-check
+npm run lint
+npm run build
+```
+
+### Codebase overview
+
+```
+lib/engine/     Pure-TS engine (parser, tokens, lint, export, WCAG math)
+components/     React components (TokenEditor, LivePreview, LintPanel, …)
+components/ui/  shadcn/ui primitives
+app/            Next.js App Router pages and layout
+tests/          Vitest test suite for the engine
+```
+
+### Pull request checklist
+
+- [ ] `npm run build` passes with zero errors
+- [ ] `npm test` passes (all existing + new tests for added functionality)
+- [ ] No `any` types introduced
+- [ ] Engine changes include corresponding unit tests
+- [ ] UI changes are responsive (test at mobile and desktop widths)
+- [ ] No hardcoded secrets or environment-specific values
+
 ## License
 
 Apache-2.0. The DESIGN.md specification is © Google LLC (Apache-2.0).
