@@ -1,7 +1,5 @@
 # DESIGN.md Studio
-
 ![DESIGN.md Studio](./public/logo.png)
-
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)](#)
 [![Tests](https://img.shields.io/badge/tests-18%20passing-brightgreen)](#)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](#)
@@ -9,6 +7,8 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38bdf8)](#)
 
 A visual editor + linter for [Google's DESIGN.md design-token spec](https://github.com/google-labs-code/design.md) (alpha). Author tokens in a structured editor, see a live component preview, catch WCAG contrast problems, and export a Tailwind theme or a W3C DTCG token file — all in the browser.
+
+**Live demo:** [designmd-studio.xscode.biz.id](https://designmd-studio.xscode.biz.id/)
 
 Everything runs client-side: the parsing, linting, WCAG math, and export are a pure-TypeScript engine with no backend. Your document is persisted to `localStorage`, so the app is fully deployable as a static Vercel site.
 
